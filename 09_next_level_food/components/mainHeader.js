@@ -1,13 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import logo from "@/assets/logo.png";
-import classes from "./header.module.css";
-import HeaderBackground from "./headerBackground";
+import classes from "./mainHeader.module.css";
+import MainHeaderBackground from "./mainHeaderBackground";
 
-const Header = () => {
+const MainHeader = () => {
   return (
     <>
-      <HeaderBackground />
+      <MainHeaderBackground />
       <header className={classes.header}>
         <Link href="/" className={classes.logo}>
           <Image src={logo} alt="A Plate with food on it" priority />
@@ -29,4 +29,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default MainHeader;

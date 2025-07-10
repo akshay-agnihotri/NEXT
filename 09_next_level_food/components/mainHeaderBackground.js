@@ -1,6 +1,6 @@
 "use client";
 
-const HeaderBackground = () => {
+const MainHeaderBackground = () => {
   return (
     <div className="header-background">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -25,4 +25,4 @@ const HeaderBackground = () => {
   );
 };
 
-export default HeaderBackground;
+export default MainHeaderBackground;

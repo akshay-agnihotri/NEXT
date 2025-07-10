@@ -1,5 +1,5 @@
-import Header from "@/components/header";
 import "./globals.css";
+import MainHeader from "@/components/mainHeader";
 
 export const metadata = {
   title: "NextJS Course App",
@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Header />
+        <MainHeader />
         {children}
       </body>
     </html>
