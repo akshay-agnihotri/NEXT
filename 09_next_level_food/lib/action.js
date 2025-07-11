@@ -3,6 +3,10 @@
 import { redirect } from "next/navigation";
 import { saveMeal } from "./meals";
 
+const isValid = (text) => {
+  return !text || text.trim() === "" ? false : true;
+};
+
 export const handleShareMeal = async (formData) => {
   // id INTEGER PRIMARY KEY AUTOINCREMENT, => not present in formData
   // slug TEXT NOT NULL UNIQUE, => not present in formData
@@ -15,6 +19,17 @@ export const handleShareMeal = async (formData) => {
     instructions: formData.get("instructions"),
     image: formData.get("image"),
   };
+
+  if (
+    !isValid(meal.creator) ||
+    !isValid(meal.creator_email) ||
+    !isValid(meal.title) ||
+    !isValid(meal.summary) ||
+    !isValid(meal.instructions) ||
+    !meal.image
+  ) {
+    throw new Error("All fields are required!");
+  }
 
   await saveMeal(meal);
 
