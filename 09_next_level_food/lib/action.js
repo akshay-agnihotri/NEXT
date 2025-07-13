@@ -7,7 +7,7 @@ const isValid = (text) => {
   return !text || text.trim() === "" ? false : true;
 };
 
-export const handleShareMeal = async (formData) => {
+export const handleShareMeal = async (prevState, formData) => {
   // id INTEGER PRIMARY KEY AUTOINCREMENT, => not present in formData
   // slug TEXT NOT NULL UNIQUE, => not present in formData
 
@@ -26,9 +26,9 @@ export const handleShareMeal = async (formData) => {
     !isValid(meal.title) ||
     !isValid(meal.summary) ||
     !isValid(meal.instructions) ||
-    !meal.image
+    meal.image.size === 0 
   ) {
-    throw new Error("All fields are required!");
+    return "All fields are required!";
   }
 
   await saveMeal(meal);
